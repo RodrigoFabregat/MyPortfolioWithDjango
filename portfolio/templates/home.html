@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+
+
+{% block content %}
+
+{% load static %}
+
+<header class="row bg-black">
+    <div class="col-md-4 my-auto">
+        <img  style="width: 300px; margin-left: 80px; border-radius: 10px;" src="{% static 'portfolio/RR.png' %}"  alt="">
+
+    </div>
+
+    <div class="col-md-8">
+        <h1>I am <strong>Rodrigo Fabregat</strong></h1>
+        <h3>I am a Python FullStack Developer</h3>
+        <p>I'm a Python FullStack developer, I know how to use JavaScript too, but I prefer to use Python and all its frameworks
+            - I like the BackEnd, but I can do the FrontEnd just fine.
+            - I am looking for a company where I can continue progressing in the long path of learning as a python developer.</p>
+        <a class="btn btn-primary  btn-hover color-1 "  href="{% static 'portfolio/cv.pdf' %}" target="_blank">Download CV</a>
+    </div>
+</header>
+
+
+
+<div class="row my-4 text-center">
+    <h3>My projects</h3>
+    <p class="display-6 text-light">Here I am uploading my personal projects</p>
+
+{% for project in projects %}
+
+<div class="col-md-4 p-4">
+    <div class="card bg-back card-project">
+        <img src="{{project.image.url}}" alt="{{project.title}}" class="card-img-top">
+        <div class="card-body">
+
+      <h2>{{project.title}}</h2> <p>{{project.description}}</p>
+
+        {% if project.url %}
+        <a href="{{project.url}}" class=" btn btn-light rounded-0 btn-sm" target="_blank" ></a>{{project.url}}</a>
+        {% endif %}
+        </div>
+    </div>
+</div>
+
+
+
+{% endfor %} 
+
+{% endblock %}
+
+
+</div>
